@@ -21,9 +21,14 @@ public class DoctorController {
     public ResponseEntity addDoctor(@RequestBody Doctor doctor) {
         if (doctorService.addDoctor(doctor))
             return new ResponseEntity<>(new DoctorAlreadyPresent().getMessage(), HttpStatus.CONFLICT);
-        return ResponseEntity.ok(doctor);
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
+    /**
+     * It returns a list of doctors
+     * 
+     * @return A list of doctors
+     */
     @GetMapping("/load")
     public ResponseEntity<List<Doctor>> getAllDoctors() {
         return ResponseEntity.ok(doctorService.getDoctors());

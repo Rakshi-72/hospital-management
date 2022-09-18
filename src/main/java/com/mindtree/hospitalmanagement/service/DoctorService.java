@@ -14,7 +14,8 @@ public class DoctorService {
     private DoctorRepo repo;
 
     /**
-     * > If the doctor is already present, return true. Otherwise, add the doctor to the repository and return false
+     * > If the doctor is already present, return true. Otherwise, add the doctor to
+     * the repository and return false
      *
      * @param doc The doctor object that is to be added to the database.
      * @return A boolean value.
@@ -65,9 +66,9 @@ public class DoctorService {
     public List<Doctor> sortDoctors(List<Doctor> doctors) {
         Collections.sort(doctors, (a, b) -> {
             if (a.getSalary() - b.getSalary() == 0) {
-                return a.getName().compareTo(b.getName());
+                return b.getName().compareTo(a.getName());
             }
-            return a.getSalary() - b.getSalary();
+            return b.getSalary() - a.getSalary();
         });
         return doctors;
     }
